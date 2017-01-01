@@ -1,0 +1,52 @@
+= Spark REST API with AngularJS to follow course
+:experimental:
+:source-highlighter: coderay
+:toc:
+:toclevels: 5
+:toc-placement: preamble
+:sectnums:
+:main_package: link:./src/main/java/com/example
+:test_package: link:./src/test/java/com/example
+:main_resources: link:./src/main/resources
+:User: {main_package}/model/User.java[User.java]
+:UserDao: {main_package}/dao/UserDao.java[UserDao.java]
+:RoleClass: {main_package}/model/Role.java[Role.java]
+:RoleDao: {main_package}/dao/RoleDao.java[RoleDao.java]
+:Application: {main_package}/Application.java[Application.java]
+:DataLoader: {main_package}/DataLoader.java[DataLoader.java]
+:build_gradle: link:./build.gradle[build.gradle]
+:application_properties: {main_resources}/application.properties[application.properties]
+
+toc::[]
+
+== Description
+
+This is simply Spring-Data-REST app with Hibernate
+and H2 database.
+
+Its purpose is to figure out the proper way to handle
+`@ManyToMany` relationship in Spring-Data-REST.
+
+== Structure of the Application
+
+For now we have two model classes
+
+* {User}
+* {RoleClass}
+
+They are bound using `ManyToMany` relationship.
+
+It all started from 
+http://stackoverflow.com/questions/41402532/unable-to-get-manytomany-list-to-save-to-entity-via-rest-put-post[this] 
+post at StackOverlflow. That dictated the structure.
+
+And the DAOs, extending `CrudRepository`:
+
+* {UserDao}
+* {RoleDao}
+
+{DataLoader} for now simply adds two {RoleClass} for now.
+
+In {application_properties} high SQL verbosity is set, so
+that we can see queries.
+
