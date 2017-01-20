@@ -19,6 +19,31 @@
 
 toc::[]
 
+== Purpose
+
+The goal of the application is to test how 
+to save two entities that are in bi-directional `ManyToMany`
+relationship.
+
+http://stackoverflow.com/questions/26259474/how-to-add-elements-in-a-many-to-many-relationship-via-springs-repositoryrestr[This]
+link for example, as many others describe the way to save
+link for `ManyToMany` relationship with PUT request that can 
+be found http://stackoverflow.com/questions/17981252/how-to-update-reference-object-in-spring-data-rest[here]:
+
+```text
+   curl -v -X PUT -H "Content-Type: text/uri-list" \
+     -d "http://localhost:7070/study-spring-data/teacher/1" \
+         http://localhost:7070/study-spring-data/course/123/teacher
+```         
+
+The point of this application is to write good Unit Test that 
+checks that indeed the following PUT request can link `ManyToMany`
+related Entities.
+
+Hopefully, if I ever get there, I'll write simple Angular on
+top that can deal with this link creation when we have for
+example simple checkbox form.
+
 == Description
 
 This is simply Spring-Data-REST app with Hibernate
